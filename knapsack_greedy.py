@@ -12,7 +12,8 @@ class Objeto:
 
 # Função gulosa com mensagens a cada escolha
 def mochila_gulosa(capacidade: float, objetos: List[Objeto]):
-    # Ordena por valor por quilo (preço/peso) em ordem decrescente
+
+    # ordenacao gulosa dos itens por valor por peso
     objetos.sort(key=lambda obj: obj.preco / obj.peso, reverse=True)
 
     peso_total = 0
@@ -22,6 +23,7 @@ def mochila_gulosa(capacidade: float, objetos: List[Objeto]):
     print(f"Capacidade da mochila: {capacidade}kg\n")
     print("Iniciando seleção gulosa...\n")
 
+    # decisao gulosa de pegar os itens ou nao
     for obj in objetos:
         print(f"Analisando objeto: {obj.nome} (R${obj.preco}, {obj.peso}kg, "
               f"R${obj.preco / obj.peso:.2f}/kg)")

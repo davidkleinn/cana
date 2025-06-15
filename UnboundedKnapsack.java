@@ -21,6 +21,7 @@ public class UnboundedKnapsack {
         for(int w = 1; w <= capacity; w++){
             for(int i = 0; i < n; i++){
 
+                // aqui decide usar um item de novo se valer a pena
                 if(weights[i] <= w && dp[w - weights[i]] + values[i] > dp[w]){
                     dp[w] = dp[w - weights[i]] + values[i];
                     prevChoice[w] = i;
@@ -34,6 +35,8 @@ public class UnboundedKnapsack {
 
         List<Integer> chosen = new ArrayList<>();
         int w = capacity;
+        
+        //aqui reconstroi a lista de itens usados repetidamente
         while (w > 0 && prevChoice[w] != -1){
             int i = prevChoice[w];
             chosen.add(i);

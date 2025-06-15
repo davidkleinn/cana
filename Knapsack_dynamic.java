@@ -25,6 +25,7 @@ public class Knapsack_dynamic {
 
         int[][] table = new int[totalItens + 1][sackCapacity + 1];
 
+        // aqui faz a escolha entre incluir ou nao um item i para capacidade w
         for (int i = 1; i <= totalItens; i++) {
             for (int w = 1; w <= sackCapacity; w++) {
                 if (itens[i].weight > w) {
@@ -47,6 +48,7 @@ public class Knapsack_dynamic {
         int w = sackCapacity;
         int totalItens = itens.length -1;
 
+        // aqui acha a solucao otima
         for(int i = totalItens; i > 0 && w > 0; i--){
             if(table[i][w] != table[i-1][w]){
                 System.out.println("- " + itens[i].name + " (Weight: " + itens[i].weight + ", Value: " + itens[i].value + ")");
